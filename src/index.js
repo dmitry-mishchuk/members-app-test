@@ -1,17 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
+import store from './store/store';
+import {addMember, changeCurrentNameText, changeCurrentEmailText, clearMembers} from './store/store';
+import {subscribe} from './store/store';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+let rerenderDom = (state) => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <App state={state}
+           addMember={addMember}
+           changeCurrentNameText={changeCurrentNameText}
+           changeCurrentEmailText={changeCurrentEmailText}
+           clearMembers={clearMembers}/>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}
+rerenderDom(store.getState());
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+subscribe(rerenderDom);
+
 reportWebVitals();

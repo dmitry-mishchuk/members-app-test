@@ -1,0 +1,26 @@
+.regFormWrapper {
+  box-sizing: border-box;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+button {
+    background-color: rgba(176,176,176,1);
+    border: none;
+    color: whitergba(27,32,26,1);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}

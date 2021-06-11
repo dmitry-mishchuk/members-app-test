@@ -1,0 +1,13 @@
+.tableWrapper {
+  margin-left:20px;
+  margin-right:20px;
+}
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+table, th, td {
+    border: 1px solid black;
+    text-align:left;
+    padding: 10px;
+}

@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import RegisterForm from './components/Form/RegisterForm';
+import Members from './components/Members/Members';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to the Club</h1>
+        <RegisterForm addMember={props.addMember}
+                      currentNameText={props.state.members.currentText.name}
+                      currentEmailText={props.state.members.currentText.email}
+                      changeCurrentNameText={props.changeCurrentNameText}
+                      changeCurrentEmailText={props.changeCurrentEmailText}
+                      clearMembers={props.clearMembers}/>
+        <Members members={props.state.members}/>
     </div>
   );
 }
