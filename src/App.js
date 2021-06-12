@@ -11,7 +11,8 @@ function App(props) {
                       currentEmailText={props.state.members.currentText.email}
                       changeCurrentNameText={props.changeCurrentNameText}
                       changeCurrentEmailText={props.changeCurrentEmailText}
-                      clearMembers={props.clearMembers}/>
+                      clearMembers={props.clearMembers}
+                      error={props.state.error}/>
         <Members members={props.state.members}/>
     </div>
   );

@@ -10,15 +10,18 @@ let store = {
         {number: 2, name: "Dana Watkins", email: "dana2000@mail.com", registrationData: "15.02.2020"}
       ],
       currentText: {name: "", email: ""},
-    }
+    },
+    error: false
   },
-
   getState() {
     return this._state;
     },
   nullify(){
     store._state.members.currentText.name = "";
     store._state.members.currentText.email = "";
+  },
+  setError(value) {
+    store._state.error = value;
   }
 }
 
@@ -27,6 +30,9 @@ export const addMember = () => {
   if (verificationEmail(emails, store._state.members.currentText.email)){
     let newUser = createNewMember(store._state.members.currentText.name, store._state.members.currentText.email);
     store._state.members.member.push(newUser);
+    store.setError(false);
+  } else {
+    store.setError(true);
   }
   store.nullify();
   rerenderDom(store.getState());
@@ -41,6 +47,7 @@ export const changeCurrentEmailText = (newText) => {
 }
 export const clearMembers = () => {
   store._state.members.member = [];
+  store.setError(false);
   rerenderDom(store.getState());
 }
 export const subscribe = (observer) => {
